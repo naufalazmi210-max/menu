@@ -1,0 +1,754 @@
+/* =========================================
+   1. WARNA DAN PENGATURAN DASAR
+========================================= */
+
+:root {
+    --hijau: #245b43;
+    --hijau-gelap: #183d2d;
+    --krem: #faf7f0;
+    --putih: #ffffff;
+    --teks: #292d29;
+    --abu: #747970;
+    --garis: #e8e5dc;
+    --emas: #e5b86c;
+    --merah: #c94c4c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--krem);
+    color: var(--teks);
+    line-height: 1.6;
+}
+
+button, input, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--emas);
+    outline-offset: 3px;
+}
+
+.container {
+    width: min(1120px, 92%);
+    margin: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================================
+   2. HEADER DAN NAVIGASI
+========================================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--putih);
+    border-bottom: 1px solid var(--garis);
+}
+
+.navbar {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.logo {
+    color: var(--hijau);
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #d99b42;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.navbar nav a {
+    color: var(--teks);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.cart-nav {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 30px;
+    background: var(--hijau);
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* =========================================
+   3. BANNER UTAMA
+========================================= */
+
+.hero {
+    margin-top: 26px;
+    padding: 44px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-radius: 25px;
+    background: #e6eddf;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.label {
+    color: var(--hijau);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    margin: 12px 0;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.12;
+}
+
+.hero p {
+    margin-bottom: 22px;
+    color: #626b60;
+    font-size: 15px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--hijau);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.hero-image {
+    width: 260px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 12px 25px #00000015;
+}
+
+/* =========================================
+   4. INFORMASI CAFE
+========================================= */
+
+.benefits {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 23px 0;
+    margin-bottom: 35px;
+    border-bottom: 1px solid var(--garis);
+}
+
+.benefits div {
+    color: #596157;
+    font-size: 13px;
+}
+
+/* =========================================
+   5. JUDUL DAN PENCARIAN
+========================================= */
+
+.section-title {
+    margin-bottom: 22px;
+}
+
+.section-title h2 {
+    margin: 5px 0;
+    font-size: 29px;
+}
+
+.section-title p {
+    color: var(--abu);
+    font-size: 14px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 52px;
+    margin-bottom: 18px;
+    padding: 0 15px;
+    background: white;
+    border: 1px solid var(--garis);
+    border-radius: 12px;
+}
+
+.search-box span {
+    font-size: 23px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 20px;
+}
+
+.category-btn {
+    padding: 9px 16px;
+    border: 1px solid var(--garis);
+    border-radius: 25px;
+    background: white;
+    color: #555b53;
+    font-size: 13px;
+}
+
+.category-btn.active,
+.category-btn:hover {
+    background: var(--hijau);
+    color: white;
+    border-color: var(--hijau);
+}
+
+.result-text {
+    margin-bottom: 15px;
+    color: var(--abu);
+    font-size: 13px;
+}
+
+/* =========================================
+   6. KARTU MENU
+========================================= */
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.menu-card {
+    overflow: hidden;
+    background: white;
+    border: 1px solid var(--garis);
+    border-radius: 17px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px #0000000b;
+}
+
+.image-wrap {
+    position: relative;
+    height: 165px;
+    background: #eee9dd;
+}
+
+.menu-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: white;
+    color: var(--hijau);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.badge.habis {
+    color: var(--merah);
+    background: #fff0f0;
+}
+
+.menu-content {
+    padding: 14px;
+}
+
+.menu-content h3 {
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.description {
+    min-height: 42px;
+    margin: 7px 0 13px;
+    color: var(--abu);
+    font-size: 12px;
+}
+
+.menu-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.price {
+    color: var(--hijau);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.add-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 10px;
+    background: var(--hijau);
+    color: white;
+    font-size: 23px;
+}
+
+.add-btn:hover {
+    background: var(--hijau-gelap);
+}
+
+.empty-message {
+    padding: 30px 10px;
+    color: var(--abu);
+    text-align: center;
+}
+
+/* =========================================
+   7. KERANJANG
+========================================= */
+
+.order-section {
+    margin: 55px 0;
+    padding: 28px;
+    background: white;
+    border: 1px solid var(--garis);
+    border-radius: 20px;
+}
+
+.order-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.order-heading h2 {
+    font-size: 27px;
+}
+
+.clear-btn {
+    border: none;
+    background: transparent;
+    color: var(--merah);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.cart-row {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--garis);
+}
+
+.cart-emoji {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--krem);
+    font-size: 25px;
+}
+
+.cart-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.cart-info h3 {
+    font-size: 14px;
+}
+
+.cart-info p {
+    color: var(--abu);
+    font-size: 12px;
+}
+
+.cart-subtotal {
+    color: var(--hijau) !important;
+    font-weight: 700;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.quantity button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--garis);
+    border-radius: 8px;
+    background: white;
+}
+
+.quantity span {
+    min-width: 15px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* =========================================
+   8. RINGKASAN DAN FORM
+========================================= */
+
+.summary {
+    margin-top: 20px;
+    padding-top: 12px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: var(--abu);
+    font-size: 14px;
+}
+
+.total-row {
+    color: var(--teks);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.total-row strong {
+    color: var(--hijau);
+}
+
+.order-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    min-height: 45px;
+    padding: 10px 12px;
+    border: 1px solid var(--garis);
+    border-radius: 9px;
+    background: white;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.confirm-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 11px;
+    background: var(--hijau);
+    color: white;
+    font-weight: 800;
+}
+
+.confirm-btn:hover {
+    background: var(--hijau-gelap);
+}
+
+.note {
+    margin-top: 12px;
+    color: var(--abu);
+    text-align: center;
+    font-size: 11px;
+}
+
+/* =========================================
+   9. BUKTI PESANAN
+========================================= */
+
+.receipt {
+    margin-top: 25px;
+    padding: 23px;
+    border: 2px dashed var(--hijau);
+    border-radius: 15px;
+    background: #f1f7ef;
+}
+
+.receipt h3 {
+    margin-bottom: 12px;
+    color: var(--hijau);
+}
+
+.receipt-number {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.receipt p {
+    margin: 5px 0;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.receipt-items {
+    margin: 15px 0;
+    padding: 12px 0;
+    border-top: 1px solid #d4e0d0;
+    border-bottom: 1px solid #d4e0d0;
+}
+
+.receipt-total {
+    color: var(--hijau);
+    font-size: 18px !important;
+    font-weight: 800;
+}
+
+.print-btn {
+    margin-top: 15px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: var(--hijau);
+    color: white;
+}
+
+/* =========================================
+   10. FOOTER
+========================================= */
+
+footer {
+    padding: 35px 0;
+    background: white;
+    border-top: 1px solid var(--garis);
+    text-align: center;
+}
+
+footer p {
+    margin-top: 7px;
+    color: var(--abu);
+    font-size: 12px;
+}
+
+/* =========================================
+   11. RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 900px) {
+    .menu-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .hero-image {
+        width: 210px;
+        height: 190px;
+    }
+}
+
+/* =========================================
+   12. RESPONSIVE HP
+========================================= */
+
+@media (max-width: 650px) {
+    .navbar {
+        min-height: 65px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .navbar nav {
+        gap: 8px;
+    }
+
+    .navbar nav > a {
+        display: none;
+    }
+
+    .cart-nav {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 27px 22px;
+        min-height: 0;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .hero-image {
+        display: none;
+    }
+
+    .benefits {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 5px;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .image-wrap {
+        height: 125px;
+    }
+
+    .menu-content {
+        padding: 11px;
+    }
+
+    .menu-content h3 {
+        font-size: 14px;
+    }
+
+    .description {
+        min-height: 52px;
+        font-size: 11px;
+    }
+
+    .price {
+        font-size: 12px;
+    }
+
+    .add-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .order-section {
+        padding: 18px;
+    }
+
+    .cart-row {
+        flex-wrap: wrap;
+    }
+
+    .cart-info {
+        flex-basis: calc(100% - 65px);
+    }
+
+    .quantity {
+        margin-left: 60px;
+    }
+
+    .order-form {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+}
+
+/* =========================================
+   13. CETAK BUKTI PESANAN
+========================================= */
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #receipt,
+    #receipt * {
+        visibility: visible;
+    }
+
+    #receipt {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        background: white;
+    }
+
+    .print-btn {
+        display: none;
+    }
+}
