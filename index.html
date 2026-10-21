@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Menu digital Menuin Cafe & Resto">
+    <title>Menuin Cafe & Resto</title>
+
+    <!-- Menghubungkan file CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Menghubungkan JavaScript setelah HTML selesai dibaca -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container navbar">
+            <a href="#" class="logo">Menuin<span>.</span></a>
+
+            <nav>
+                <a href="#menu">Daftar Menu</a>
+                <a href="#pesanan">Pemesanan</a>
+                <button id="cartNav" class="cart-nav" type="button">
+                    🛒 Keranjang (<span id="cartCount">0</span>)
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- BANNER UTAMA -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="label">WELCOME TO MENUIN</span>
+                <h1>Good Food.<br>Good Mood.</h1>
+                <p>
+                    Temukan makanan dan minuman favoritmu.
+                    Pilih menu, pesan dengan mudah, dan dapatkan
+                    nomor pesanan secara otomatis.
+                </p>
+                <a href="#menu" class="btn-primary">Jelajahi Menu →</a>
+            </div>
+
+            <img
+                class="hero-image"
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+                alt="Kopi di cafe"
+            >
+        </section>
+
+        <!-- INFORMASI CAFE -->
+        <section class="benefits">
+            <div>☕ Kopi pilihan</div>
+            <div>🍽️ Menu beragam</div>
+            <div>📱 Pemesanan praktis</div>
+            <div>♡ Dibuat dengan cinta</div>
+        </section>
+
+        <!-- DAFTAR MENU -->
+        <section id="menu" class="menu-section">
+            <div class="section-title">
+                <span class="label">OUR MENU</span>
+                <h2>Menu Cafe & Resto</h2>
+                <p>Pilih menu favoritmu dan tambahkan ke keranjang.</p>
+            </div>
+
+            <!-- Input pencarian -->
+            <div class="search-box">
+                <span aria-hidden="true">⌕</span>
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Cari nasi goreng, kopi, burger..."
+                    aria-label="Cari menu"
+                >
+            </div>
+
+            <!-- Tombol kategori dibuat oleh JavaScript -->
+            <div id="categories" class="categories"></div>
+
+            <p id="resultText" class="result-text"></p>
+
+            <!-- Kartu menu dibuat oleh JavaScript -->
+            <div id="menuGrid" class="menu-grid"></div>
+
+            <div id="emptyMenu" class="empty-message hidden">
+                <h3>Menu tidak ditemukan 🔎</h3>
+                <p>Coba kata kunci lainnya.</p>
+            </div>
+        </section>
+
+        <!-- KERANJANG DAN FORM PEMESANAN -->
+        <section id="pesanan" class="order-section">
+            <div class="order-heading">
+                <div>
+                    <span class="label">YOUR ORDER</span>
+                    <h2>Keranjang Pesanan</h2>
+                </div>
+
+                <button id="clearCart" class="clear-btn" type="button">
+                    Kosongkan
+                </button>
+            </div>
+
+            <div id="cartItems"></div>
+
+            <div id="emptyCart" class="empty-message">
+                <p>🛍️ Belum ada menu yang dipilih.</p>
+                <p>Silakan pilih menu terlebih dahulu.</p>
+            </div>
+
+            <!-- Ringkasan harga -->
+            <div class="summary">
+                <div class="summary-row">
+                    <span>Jumlah item</span>
+                    <span id="totalItems">0 item</span>
+                </div>
+
+                <div class="summary-row total-row">
+                    <span>Total pembayaran</span>
+                    <strong id="totalPrice">Rp0</strong>
+                </div>
+            </div>
+
+            <!-- Data pelanggan -->
+            <form id="orderForm" class="order-form">
+                <div class="form-group">
+                    <label for="customerName">Nama pelanggan *</label>
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Contoh: Andi"
+                        maxlength="60"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="tableNumber">Nomor meja *</label>
+                    <select id="tableNumber" required>
+                        <option value="">Pilih meja</option>
+                        <option value="1">Meja 1</option>
+                        <option value="2">Meja 2</option>
+                        <option value="3">Meja 3</option>
+                        <option value="4">Meja 4</option>
+                        <option value="5">Meja 5</option>
+                        <option value="6">Meja 6</option>
+                        <option value="7">Meja 7</option>
+                        <option value="8">Meja 8</option>
+                        <option value="9">Meja 9</option>
+                        <option value="10">Meja 10</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="orderNotes">Catatan pesanan (opsional)</label>
+                    <input
+                        type="text"
+                        id="orderNotes"
+                        placeholder="Contoh: tidak pedas, gula sedikit"
+                        maxlength="200"
+                    >
+                </div>
+
+                <div class="full-width">
+                    <button
+                        id="confirmButton"
+                        class="confirm-btn"
+                        type="submit"
+                    >
+                        Konfirmasi Pesanan
+                    </button>
+
+                    <p class="note">
+                        Ini adalah simulasi pemesanan dan belum terhubung
+                        ke kasir atau pembayaran online.
+                    </p>
+                </div>
+            </form>
+
+            <!-- Bukti pesanan setelah konfirmasi -->
+            <div id="receipt" class="receipt hidden" aria-live="polite">
+                <h3>✓ Pesanan Berhasil Dicatat!</h3>
+
+                <p>Nomor pesanan:</p>
+                <div id="receiptNumber" class="receipt-number"></div>
+
+                <p id="receiptDate"></p>
+                <p id="receiptName"></p>
+                <p id="receiptTable"></p>
+
+                <div id="receiptItems" class="receipt-items"></div>
+
+                <p id="receiptNotes"></p>
+                <p id="receiptTotal" class="receipt-total"></p>
+
+                <button id="printButton" class="print-btn" type="button">
+                    Cetak Bukti Pesanan
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <a href="#" class="logo">Menuin<span>.</span></a>
+            <p>Menu digital yang membuat pengalaman makan lebih praktis.</p>
+            <p>© 2026 Menuin Cafe & Resto</p>
+        </div>
+    </footer>
+
+</body>
+</html>
