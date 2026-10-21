@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Membuat tampilan menyesuaikan ukuran layar HP dan laptop -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Menuin, menu digital untuk cafe dan restoran.">
+
+    <title>Menuin | Menu Digital Cafe</title>
+
+    <!-- Menghubungkan file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER: logo dan informasi singkat website -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <span class="logo-icon">☕</span>
+                Menuin<span class="logo-dot">.</span>
+            </a>
+
+            <p class="header-caption">Menu favoritmu, lebih mudah ditemukan.</p>
+
+            <!-- Tombol untuk membuka keranjang -->
+            <button class="cart-button" id="cartButton">
+                🛒 Keranjang
+                <span id="cartCount" class="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- HERO: judul utama dan penjelasan website -->
+        <section class="hero">
+            <div class="hero-text">
+                <span class="eyebrow">MENU DIGITAL CAFE</span>
+
+                <h1>Temukan menu favoritmu.</h1>
+
+                <p>
+                    Lihat menu, pilih makanan, dan hitung total pesanan
+                    langsung dari HP tanpa harus menunggu buku menu.
+                </p>
+
+                <a href="#daftarMenu" class="primary-link">
+                    Lihat Menu <span>↓</span>
+                </a>
+            </div>
+
+            <div class="hero-decoration" aria-hidden="true">
+                <span>☕</span>
+                <span>🥐</span>
+                <span>🍰</span>
+            </div>
+        </section>
+
+        <!-- INFORMASI CAFE -->
+        <section class="cafe-info">
+            <div>
+                <span class="info-icon">✦</span>
+                <span>Fresh & Delicious</span>
+            </div>
+
+            <div>
+                <span class="info-icon">♡</span>
+                <span>Dibuat dengan cinta</span>
+            </div>
+
+            <div>
+                <span class="info-icon">✓</span>
+                <span>Menu mudah diakses</span>
+            </div>
+        </section>
+
+        <!-- AREA PENCARIAN MENU -->
+        <section class="menu-section" id="daftarMenu">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">PILIHAN HARI INI</span>
+                    <h2>Jelajahi Menu</h2>
+                    <p>Pilih makanan atau minuman sesuai seleramu.</p>
+                </div>
+            </div>
+
+            <!-- Input pencarian berdasarkan nama produk -->
+            <div class="search-wrapper">
+                <span aria-hidden="true">⌕</span>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Cari kopi, matcha, kentang..."
+                    aria-label="Cari menu"
+                >
+            </div>
+
+            <!-- Tombol kategori dibuat melalui JavaScript -->
+            <div
+                class="category-list"
+                id="categoryList"
+                aria-label="Filter kategori menu"
+            ></div>
+
+            <!-- Jumlah produk yang ditampilkan -->
+            <p class="result-info" id="resultInfo" aria-live="polite"></p>
+
+            <!-- Daftar kartu menu dibuat melalui JavaScript -->
+            <div class="menu-grid" id="menuGrid"></div>
+
+            <!-- Pesan jika menu tidak ditemukan -->
+            <div class="empty-search hidden" id="emptySearch">
+                <span>🔎</span>
+                <h3>Menu tidak ditemukan</h3>
+                <p>Coba kata kunci atau kategori yang lain.</p>
+            </div>
+        </section>
+
+        <!-- KERANJANG PESANAN -->
+        <section class="cart-section" id="keranjang">
+            <div class="cart-heading">
+                <div>
+                    <span class="eyebrow">PESANANMU</span>
+                    <h2>Keranjang</h2>
+                </div>
+
+                <button class="text-button" id="clearCartButton">
+                    Kosongkan
+                </button>
+            </div>
+
+            <!-- Daftar isi keranjang dibuat melalui JavaScript -->
+            <div id="cartItems" class="cart-items"></div>
+
+            <!-- Tampilan ketika keranjang masih kosong -->
+            <div id="emptyCart" class="empty-cart">
+                <span>🛍️</span>
+                <p>Keranjangmu masih kosong.</p>
+                <p class="muted">Yuk, pilih menu favoritmu!</p>
+            </div>
+
+            <!-- Ringkasan total harga -->
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Total item</span>
+                    <span id="totalItems">0 item</span>
+                </div>
+
+                <div class="summary-row total-row">
+                    <span>Total harga</span>
+                    <span id="totalPrice">Rp0</span>
+                </div>
+
+                <button class="checkout-button" id="checkoutButton">
+                    Lihat Ringkasan Pesanan
+                </button>
+
+                <p class="cart-note">
+                    * Ini adalah simulasi pesanan. Pembayaran dan pengiriman
+                    pesanan belum terhubung ke sistem cafe.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER: informasi pembuat website -->
+    <footer class="footer">
+        <div class="container">
+            <a href="#" class="logo footer-logo">
+                Menuin<span class="logo-dot">.</span>
+            </a>
+
+            <p>Solusi sederhana untuk pengalaman memilih menu yang lebih mudah.</p>
+            <p class="copyright">© 2026 Menuin. Dibuat untuk belajar dan berinovasi.</p>
+        </div>
+    </footer>
+
+    <!-- Tempat menampilkan notifikasi singkat -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <!-- Menghubungkan file JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
